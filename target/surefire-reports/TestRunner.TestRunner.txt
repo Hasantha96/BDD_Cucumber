@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: TestRunner.TestRunner
+-------------------------------------------------------------------------------
+Tests run: 28, Failures: 2, Errors: 2, Skipped: 8, Time elapsed: 96.97 sec <<< FAILURE!
+When User fill in login credentials with "testbdd@gmail.com" and "test@123"(| testbdd@gmail.com | test@123 |)  Time elapsed: 0.007 sec  <<< ERROR!
+java.lang.NullPointerException
+	at stepDefinition.Login.user_fill_in_login_credentials_with_and(Login.java:79)
+	at ?.When User fill in login credentials with "testbdd@gmail.com" and "test@123"(F:/Projects/BDD/src/test/resources/features/LoginProfile.feature:17)
+
+| testbdd@gmail.com | test@123 |  Time elapsed: 0.008 sec  <<< ERROR!
+java.lang.NullPointerException
+	at stepDefinition.Login.user_fill_in_login_credentials_with_and(Login.java:79)
+	at ?.When User fill in login credentials with "testbdd@gmail.com" and "test@123"(F:/Projects/BDD/src/test/resources/features/LoginProfile.feature:17)
+
+Then User should be on the "My Account" page on URL "http://automationpractice.com/index.php?controller=my-account"(| testbdd@gmail.com | test@1234 |)  Time elapsed: 0 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<...ndex.php?controller=[my-account]> but was:<...ndex.php?controller=[authentication]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at stepDefinition.Login.user_should_be_on_the_page_on_URL(Login.java:50)
+	at ?.Then User should be on the "My Account" page on URL "http://automationpractice.com/index.php?controller=my-account"(F:/Projects/BDD/src/test/resources/features/LoginProfile.feature:19)
+
+| testbdd@gmail.com | test@1234 |  Time elapsed: 0 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<...ndex.php?controller=[my-account]> but was:<...ndex.php?controller=[authentication]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at stepDefinition.Login.user_should_be_on_the_page_on_URL(Login.java:50)
+	at ?.Then User should be on the "My Account" page on URL "http://automationpractice.com/index.php?controller=my-account"(F:/Projects/BDD/src/test/resources/features/LoginProfile.feature:19)
+

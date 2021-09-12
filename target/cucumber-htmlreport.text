@@ -1,0 +1,55 @@
+#Smoke#Regression
+Feature: User Login
+
+  Scenario: Sucessful Login                                              # F:/BDD/BDD/src/test/resources/features/ActiLogin.feature:3
+    Given User is on the "Home" page on URL "https://demo.actitime.com/" # Login.user_is_on_the_page_on_URL(String,String)
+    #      When User click on "Sign In" link
+    When User fill in "Username" with "admin"                            # Login.user_fill_in_with(String,String)
+    And User fill in "Password" with "manager"                           # Login.user_fill_in_with(String,String)
+    And User click on the "Log In" button                                # Login.user_click_on_the_button(String)
+    #      Then User should be on the "My Account" page on URL "http://automationpractice.com/index.php?controller=my-account"
+    Then User should see "Enter Time-Track" message                      # Login.user_should_see_message(String)
+    And User should see the "Logout" button                              # Login.user_should_see_the_button(String)
+    And User close the browser                                           # Login.user_close_the_browser()
+
+  Scenario Outline: Multiple User Login                                    # F:/BDD/BDD/src/test/resources/features/ActiLogin.feature:14
+    Given User is on the "Home" page on URL "https://demo.actitime.com/"
+    #      When User click on "Sign In" link
+    When User fill in login credentials with "<Username>" and "<Password>"
+    And User click on the "Log In" button
+    #      Then User should be on the "My Account" page on URL "http://automationpractice.com/index.php?controller=my-account"
+    Then User should see "Enter Time-Track" message
+    And User should see the "Logout" button
+    And User close the browser
+
+    Examples: 
+
+  Scenario Outline: Multiple User Login                                  # F:/BDD/BDD/src/test/resources/features/ActiLogin.feature:25
+    Given User is on the "Home" page on URL "https://demo.actitime.com/" # Login.user_is_on_the_page_on_URL(String,String)
+    #      When User click on "Sign In" link
+    When User fill in login credentials with "admin" and "manager"       # Login.user_fill_in_login_credentials_with_and(String,String)
+    And User click on the "Log In" button                                # Login.user_click_on_the_button(String)
+    #      Then User should be on the "My Account" page on URL "http://automationpractice.com/index.php?controller=my-account"
+    Then User should see "Enter Time-Track" message                      # Login.user_should_see_message(String)
+    And User should see the "Logout" button                              # Login.user_should_see_the_button(String)
+    And User close the browser                                           # Login.user_close_the_browser()
+
+  Scenario Outline: Multiple User Login                                  # F:/BDD/BDD/src/test/resources/features/ActiLogin.feature:26
+    Given User is on the "Home" page on URL "https://demo.actitime.com/" # Login.user_is_on_the_page_on_URL(String,String)
+    #      When User click on "Sign In" link
+    When User fill in login credentials with "trainee" and "trainee"     # Login.user_fill_in_login_credentials_with_and(String,String)
+    And User click on the "Log In" button                                # Login.user_click_on_the_button(String)
+    #      Then User should be on the "My Account" page on URL "http://automationpractice.com/index.php?controller=my-account"
+    Then User should see "Enter Time-Track" message                      # Login.user_should_see_message(String)
+    And User should see the "Logout" button                              # Login.user_should_see_the_button(String)
+    And User close the browser                                           # Login.user_close_the_browser()
+
+  Scenario: Invalid Login                                                                       # F:/BDD/BDD/src/test/resources/features/ActiLogin.feature:28
+    Given User is on the "Home" page on URL "https://demo.actitime.com/"                        # Login.user_is_on_the_page_on_URL(String,String)
+    #      When User click on "Sign In" link
+    When User fill in "Username" with "manager"                                                 # Login.user_fill_in_with(String,String)
+    And User fill in "Password" with "manager"                                                  # Login.user_fill_in_with(String,String)
+    And User click on the "Log In" button                                                       # Login.user_click_on_the_button(String)
+    #      Then User should be on the "My Account" page on URL "http://automationpractice.com/index.php?controller=my-account"
+    Then User should see the error "Username or Password is invalid. Please try again." message # Login.user_should_see_the_error(String)
+    And User close the browser                                                                  # Login.user_close_the_browser()
